@@ -51,5 +51,19 @@ namespace FTN.Common
 		Primary = 1,
 		Secondary = 2,
 		Tertiary = 3
-	}			
+	}
+
+    public enum RegulatingControlModeKind : short
+    {
+        Unknown = 0x00,
+        ActivePower = 0x01,
+        Admittance = 0x02,
+        CurrentFlow = 0x03,
+        Fixed = 0x04,
+        PowerFactor = 0x05,
+        ReactivePower = 0x06,
+        Temperature = 0x07,
+        TimeScheduled = 0x08,
+        Voltage = 0x09
+    }
 }
