@@ -122,21 +122,21 @@ namespace FTN.Services.NetworkModelService
 			IdentifiedObject io = null;			
 			switch ((DMSType)type)
 			{
-				case DMSType.BASEVOLTAGE:
-					io = new BaseVoltage(globalId);
-					break;
-
-				case DMSType.LOCATION:
-					io = new Location(globalId);
-					break;
 				case DMSType.POWERTR:
 					io = new PowerTransformer(globalId);
 					break;
-				case DMSType.POWERTRWINDING:
-					io = new TransformerWinding(globalId);
+
+				case DMSType.POWERTREND:
+					io = new PowerTransformerEnd(globalId);
 					break;
-				case DMSType.WINDINGTEST:
-					io = new WindingTest(globalId);
+				case DMSType.TAPCHANGER:
+					io = new TapChanger(globalId);
+					break;
+				case DMSType.TAPCHANGERCTRL:
+					io = new TapChangerControl(globalId);
+					break;
+				case DMSType.TERMINAL:
+					io = new Terminal(globalId);
 					break;			
 
 				default:					

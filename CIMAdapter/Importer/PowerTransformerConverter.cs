@@ -91,7 +91,7 @@
             }
         }
 
-        public static void PopulateTapChanger(FTN.TapChanger tapChanger, ResourceDescription rd, ImportHelper importHelper, TransformAndLoadReport report)
+        public static void PopulateTapChangerProperties(FTN.TapChanger tapChanger, ResourceDescription rd, ImportHelper importHelper, TransformAndLoadReport report)
         {
             if ((tapChanger != null) && (rd != null))
             {
