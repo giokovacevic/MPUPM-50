@@ -1,0 +1,1955 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:a="http://langdale.com.au/2005/Message#"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <head>
+      <title>Profile Documentation</title>
+      <style type="text/css">
+/* typography: fonts */
+body { font-family: arial, sans-serif; }
+
+.name, .type, .cardinality, .superclass, .xsdtype, .namespace { font-family: courier, monospace; }
+
+
+/* typography: emphasis */
+h1 { color: white; background: gray;}
+
+h2, h3 { color: gray; text-decoration: none;}
+
+h2.abstract, h2.enumerated, h2.domain {font-style: italic } 
+
+p.note { background-color: #ddd }
+
+p.declaration { color: gray }
+
+:link { color: purple; }
+
+.xsdtype { color: black; font-weight: bold; }
+
+.namespace { color: black }
+
+.package { font-size: x-large; color: gray }
+
+
+/* borders */
+div.group {
+	border-style: solid;
+	border-color: gray;
+	border-width: 1px;
+	
+}
+
+th, td {
+	border-top-style : solid;
+	border-top-width : 1px;
+	border-color: gray;
+ }
+
+
+/* spacing and alignment */
+body {padding: 5px; }
+
+h1 { padding: 5px;}
+
+div.group {
+	margin-top: 10px;
+	padding: 5px;
+	position: relative;
+}
+th, td {
+	text-align : left;
+	vertical-align : top;
+}
+th, td.type { width: 15em; overflow: visible; }
+
+p.cardinality { width: 4em; }
+
+p.package { position: absolute; right: 10px; top: 0px}				
+</style>
+   </head>
+   <body>
+      <h1>Profile Documentation</h1>
+      <p/>
+      <p class="declaration">
+					Profile namespace:
+					<span class="namespace">http://giokovacevic.com/cim/profile/LabsProfile#</span>
+      </p>
+      <h1>Concrete Classes</h1>
+      <div id="PowerTransformer" class="group">
+         <a href="#PowerTransformer">
+            <h2 class="concrete">PowerTransformer</h2>
+         </a>
+         <p class="package">Wires</p>
+         <p class="comment">An electrical device consisting of  two or more coupled windings, with or without a magnetic core, for introducing mutual coupling between electric circuits. Transformers can be used to control voltage and phase shift (active power flow).</p>
+         <p class="comment">A power transformer may be composed of separate transformer tanks that need not be identical.</p>
+         <p class="comment">A power transformer can be modelled with or without tanks and is intended for use in both balanced and unbalanced representations.   A power transformer typically has two terminals, but may have one (grounding), three or more  terminals.</p>
+         <h3>Native Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformer.vectorGroup">vectorGroup</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p class="comment">Vector group of the transformer for protective relaying, e.g., Dyn1. For unbalanced transformers, this may not be simply determined from the constituent winding connections and phase angle dispacements.</p>
+                  <p class="comment">The vectorGroup string consists of the following components in the order listed: high voltage winding connection, mid voltage winding connection (for three winding transformers), phase displacement clock number from 0 to 11,  low voltage winding connection</p>
+                  <p class="comment">phase displacement clock number from 0 to 11.   The winding connections are D (delta), Y (wye), YN (wye with neutral), Z (zigzag), ZN (zigzag with neutral), A (auto transformer). Upper case means the high voltage, lower case mid or low. The high voltage winding always has clock postion 0 and is not included in the vector group string.  Some examples: YNy0 (two winding wye to wye with no phase displacement), YNd11 (two winding wye to delta with 330 degrees phase displacement), YNyn0d5 (three winding transformer wye with neutral high voltgage, wye with neutral mid voltgage and no phase displacement, delta low voltage with 150 degrees displacement).</p>
+                  <p class="comment">Phase displacement is defined as the angular difference between the phasors representing the voltages between the neutral point (real or imaginary) and the corresponding terminals of two windings, a positive sequence voltage system being applied to the high-voltage terminals, following each other in alphabetical sequence if they are lettered, or in numerical sequence if they are numbered: the phasors are assumed to rotate in a counter-clockwise sense.</p>
+               </td>
+            </tr>
+         </table>
+         <h3>Inherited Members</h3>
+         <table/>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">aggregate</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">boolean</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#Equipment.aggregate">Equipment</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">normallyInService</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">boolean</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#Equipment.normallyInService">Equipment</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <table/>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">mRID</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">aliasName</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.aliasName">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">name</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div id="PowerTransformerEnd" class="group">
+         <a href="#PowerTransformerEnd">
+            <h2 class="concrete">PowerTransformerEnd</h2>
+         </a>
+         <p class="package">IES_Projects</p>
+         <p class="comment">A PowerTransformerEnd is associated with each Terminal of a PowerTransformer.</p>
+         <p class="comment">The impdedance values r, r0, x, and x0 of a PowerTransformerEnd represents a star equivalent as follows</p>
+         <p class="comment">1) for a two Terminal PowerTransformer the high voltage PowerTransformerEnd has non zero values on r, r0, x, and x0 while the low voltage PowerTransformerEnd has zero values for r, r0, x, and x0.</p>
+         <p class="comment">2) for a three Terminal PowerTransformer the three PowerTransformerEnds represents a star equivalent with each leg in the star represented by r, r0, x, and x0 values.</p>
+         <p class="comment">3) for a PowerTransformer with more than three Terminals the PowerTransformerEnd impedance values cannot be used. Instead use the TransformerMeshImpedance or split the transformer into multiple PowerTransformers.</p>
+         <h3>Native Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformerEnd.b">b</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Susceptance">Susceptance</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Magnetizing branch susceptance (B mag).  The value can be positive or negative.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformerEnd.b0">b0</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Susceptance">Susceptance</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Zero sequence magnetizing branch susceptance.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformerEnd.connectionKind">connectionKind</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#WindingConnection">WindingConnection</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Kind of connection.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformerEnd.g">g</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Conductance">Conductance</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Magnetizing branch conductance.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformerEnd.g0">g0</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Conductance">Conductance</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Zero sequence magnetizing branch conductance (star-model).</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformerEnd.phaseAngleClock">phaseAngleClock</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">integer</p>
+               </td>
+               <td>
+                  <p class="comment">Terminal voltage phase angle displacement where 360 degrees are represented with clock hours. The valid values are 0 to 11. For example, for the secondary side end of a transformer with vector group code of 'Dyn11', specify the connection kind as wye with neutral and specify the phase angle of the clock as 11.  The clock value of the transformer end number specified as 1, is assumed to be zero.  Note the transformer end number is not assumed to be the same as the terminal sequence number.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformerEnd.r">r</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Resistance">Resistance</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Resistance (star-model) of the transformer end.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformerEnd.r0">r0</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Resistance">Resistance</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Zero sequence series resistance (star-model) of the transformer end.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformerEnd.ratedS">ratedS</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#ApparentPower">ApparentPower</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Normal apparent power rating.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformerEnd.ratedU">ratedU</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Voltage">Voltage</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Rated voltage: phase-phase for three-phase windings, and either phase-phase or phase-neutral for single-phase windings.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformerEnd.x">x</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Reactance">Reactance</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Positive sequence series reactance (star-model) of the transformer end.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformerEnd.x0">x0</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Reactance">Reactance</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Zero sequence series reactance of the transformer end.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="PowerTransformerEnd.PowerTransformer">PowerTransformer</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#PowerTransformer">PowerTransformer</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">The power transformer of this power transformer end.</p>
+               </td>
+            </tr>
+         </table>
+         <h3>Inherited Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">Terminal</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Terminal">Terminal</a>
+                  </p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#TransformerEnd.Terminal">TransformerEnd</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">mRID</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">aliasName</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.aliasName">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">name</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div id="TapChanger" class="group">
+         <a href="#TapChanger">
+            <h2 class="concrete">TapChanger</h2>
+         </a>
+         <p class="package">Wires</p>
+         <p class="comment">Mechanism for changing transformer winding tap positions.</p>
+         <h3>Native Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name" id="TapChanger.highStep">highStep</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">integer</p>
+               </td>
+               <td>
+                  <p class="comment">Highest possible tap step position, advance from neutral</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChanger.initialDelay">initialDelay</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Seconds">Seconds</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">For an LTC, the delay for initial tap changer operation (first step change)</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChanger.lowStep">lowStep</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">integer</p>
+               </td>
+               <td>
+                  <p class="comment">Lowest possible tap step position, retard from neutral</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChanger.ltcFlag">ltcFlag</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">boolean</p>
+               </td>
+               <td>
+                  <p class="comment">Specifies whether or not a TapChanger has load tap changing capabilities.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChanger.neutralStep">neutralStep</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">integer</p>
+               </td>
+               <td>
+                  <p class="comment">The neutral tap step position for this winding.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChanger.neutralU">neutralU</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Voltage">Voltage</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Voltage at which the winding operates at the neutral tap setting.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChanger.normalStep">normalStep</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">integer</p>
+               </td>
+               <td>
+                  <p class="comment">The tap step position used in "normal" network operation for this winding. For a "Fixed" tap changer indicates the current physical tap setting.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChanger.regulationStatus">regulationStatus</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">boolean</p>
+               </td>
+               <td>
+                  <p class="comment">Specifies the default regulation status of the TapChanger.  True is regulating.  False is not regulating.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChanger.subsequentDelay">subsequentDelay</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Seconds">Seconds</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">For an LTC, the delay for subsequent tap changer operation (second and later step changes)</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChanger.TapChangerControl">TapChangerControl</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#TapChangerControl">TapChangerControl</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">The regulating control scheme in which this tap changer participates.</p>
+               </td>
+            </tr>
+         </table>
+         <h3>Inherited Members</h3>
+         <table/>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">mRID</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">aliasName</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.aliasName">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">name</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div id="TapChangerControl" class="group">
+         <a href="#TapChangerControl">
+            <h2 class="concrete">TapChangerControl</h2>
+         </a>
+         <p class="package">Wires</p>
+         <p class="comment">Discribes behaviour specific to tap changers, e.g. how the voltage at the end of a line varies with the load level and compensation of the voltage drop by tap adjustment.</p>
+         <h3>Native Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name" id="TapChangerControl.limitVoltage">limitVoltage</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Voltage">Voltage</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Maximum allowed regulated voltage on the PT secondary, regardless of line drop compensation. Sometimes referred to as first-house protection.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChangerControl.lineDropCompensation">lineDropCompensation</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">boolean</p>
+               </td>
+               <td>
+                  <p class="comment">If true, the line drop compensation is to be applied.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChangerControl.lineDropR">lineDropR</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Resistance">Resistance</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Line drop compensator resistance setting for normal (forward) power flow.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChangerControl.lineDropX">lineDropX</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Reactance">Reactance</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Line drop compensator reactance setting for normal (forward) power flow.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChangerControl.reverseLineDropR">reverseLineDropR</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Resistance">Resistance</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Line drop compensator resistance setting for reverse power flow.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="TapChangerControl.reverseLineDropX">reverseLineDropX</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Reactance">Reactance</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Line drop compensator reactance setting for reverse power flow.</p>
+               </td>
+            </tr>
+         </table>
+         <h3>Inherited Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">discrete</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">boolean</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#RegulatingControl.discrete">RegulatingControl</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">mode</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#RegulatingControlModeKind">RegulatingControlModeKind</a>
+                  </p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#RegulatingControl.mode">RegulatingControl</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">monitoredPhase</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#PhaseCode">PhaseCode</a>
+                  </p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#RegulatingControl.monitoredPhase">RegulatingControl</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">targetRange</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">float</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#RegulatingControl.targetRange">RegulatingControl</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">targetValue</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">float</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#RegulatingControl.targetValue">RegulatingControl</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">Terminal</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Terminal">Terminal</a>
+                  </p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#RegulatingControl.Terminal">RegulatingControl</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <table/>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">mRID</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">aliasName</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.aliasName">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">name</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div id="Terminal" class="group">
+         <a href="#Terminal">
+            <h2 class="concrete">Terminal</h2>
+         </a>
+         <p class="package">Core</p>
+         <p class="comment">An electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.</p>
+         <h3>Native Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name" id="Terminal.connected">connected</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">boolean</p>
+               </td>
+               <td>
+                  <p class="comment">The connected status is related to a bus-branch model and the topological node to terminal relation.  True implies the terminal is connected to the related topological node and false implies it is not.</p>
+                  <p class="comment">In a bus-branch model, the connected status is used to tell if equipment is disconnected without having to change the connectivity described by the topological node to terminal relation. A valid case is that conducting equipment can be connected in one end and open in the other. In particular for an AC line segment, where the reactive line charging can be significant, this is a relevant case.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="Terminal.phases">phases</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#PhaseCode">PhaseCode</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Represents the normal network phasing condition.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="Terminal.sequenceNumber">sequenceNumber</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">integer</p>
+               </td>
+               <td>
+                  <p class="comment">The orientation of the terminal connections for a multiple terminal conducting equipment.  The sequence numbering starts with 1 and additional terminals should follow in increasing order.   The first terminal is the "starting point" for a two terminal branch.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="Terminal.ConductingEquipment">ConductingEquipment</p>
+               </th>
+               <td>
+                  <p class="cardinality">1..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#ConductingEquipment">ConductingEquipment</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.</p>
+               </td>
+            </tr>
+         </table>
+         <h3>Inherited Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">mRID</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">aliasName</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.aliasName">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">name</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <h1>Abstract Classes</h1>
+      <div id="ConductingEquipment" class="group">
+         <a href="#ConductingEquipment">
+            <h2 class="abstract">ConductingEquipment</h2>
+         </a>
+         <p class="package">Core</p>
+         <p class="comment">The parts of the power system that are designed to carry current or that are conductively connected through terminals.</p>
+         <h3>Inherited Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">aggregate</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">boolean</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#Equipment.aggregate">Equipment</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">normallyInService</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">boolean</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#Equipment.normallyInService">Equipment</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <table/>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">mRID</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">aliasName</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.aliasName">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">name</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div id="Equipment" class="group">
+         <a href="#Equipment">
+            <h2 class="abstract">Equipment</h2>
+         </a>
+         <p class="package">Core</p>
+         <p class="comment">The parts of a power system that are physical devices, electronic or mechanical.</p>
+         <h3>Native Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name" id="Equipment.aggregate">aggregate</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">boolean</p>
+               </td>
+               <td>
+                  <p class="comment">The single instance of equipment represents multiple pieces of equipment that have been modeled together as an aggregate.  Examples would be power transformers or sychronous machines operating in parallel modeled as a single aggregate power transformer or aggregate synchronous machine.  This is not to be used to indicate equipment that is part of a group of interdependent equipment produced by a network production program.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="Equipment.normallyInService">normallyInService</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">boolean</p>
+               </td>
+               <td>
+                  <p class="comment">If true, the equipment is normally in service.</p>
+               </td>
+            </tr>
+         </table>
+         <h3>Inherited Members</h3>
+         <table/>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">mRID</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">aliasName</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.aliasName">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">name</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div id="IdentifiedObject" class="group">
+         <a href="#IdentifiedObject">
+            <h2 class="abstract">IdentifiedObject</h2>
+         </a>
+         <p class="package">IES_Projects</p>
+         <p class="comment">This is a root class to provide common identification for all classes needing identification and naming attributes.</p>
+         <h3>Native Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name" id="IdentifiedObject.mRID">mRID</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p class="comment">Master resource identifier issued by a model authority. The mRID is globally unique within an exchange context.</p>
+                  <p class="comment">Global uniqeness is easily achived by using a UUID for the mRID. It is strongly recommended to do this.</p>
+                  <p class="comment">For CIMXML data files in RDF syntax, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="IdentifiedObject.aliasName">aliasName</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p class="comment">The aliasName is free text human readable name of the object alternative to IdentifiedObject.name. It may be non unique and may not correlate to a naming hierarchy.</p>
+                  <p class="comment">The attribute aliasName is retained because of backwards compatibility between CIM relases. It is however recommended to replace aliasName with the Name class as aliasName is planned for retirement at a future time.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="IdentifiedObject.name">name</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p class="comment">The name is any free human readable and possibly non unique text naming the object.</p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div id="PowerSystemResource" class="group">
+         <a href="#PowerSystemResource">
+            <h2 class="abstract">PowerSystemResource</h2>
+         </a>
+         <p class="package">Core</p>
+         <p class="comment">A power system resource can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated.</p>
+         <h3>Inherited Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">mRID</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">aliasName</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.aliasName">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">name</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div id="RegulatingControl" class="group">
+         <a href="#RegulatingControl">
+            <h2 class="abstract">RegulatingControl</h2>
+         </a>
+         <p class="package">IES_Projects</p>
+         <p class="comment">Specifies a set of equipment that works together to control a power system quantity such as voltage or flow.</p>
+         <h3>Native Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name" id="RegulatingControl.discrete">discrete</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">boolean</p>
+               </td>
+               <td>
+                  <p class="comment">The regulation is performed in a discrete mode.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="RegulatingControl.mode">mode</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#RegulatingControlModeKind">RegulatingControlModeKind</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">The regulating control mode presently available.  This specifications allows for determining the kind of regualation without need for obtaining the units from a schedule.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="RegulatingControl.monitoredPhase">monitoredPhase</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#PhaseCode">PhaseCode</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Phase voltage controlling this regulator, measured at regulator location.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="RegulatingControl.targetRange">targetRange</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">float</p>
+               </td>
+               <td>
+                  <p class="comment">This is the case input target range.   This performs the same function as the value2 attribute on the regulation schedule in the case that schedules are not used.   The units of those appropriate for the mode.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="RegulatingControl.targetValue">targetValue</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">float</p>
+               </td>
+               <td>
+                  <p class="comment">The target value specified for case input.   This value can be used for the target value wihout the use of schedules. The value has the units appropriate to the mode attribute.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name" id="RegulatingControl.Terminal">Terminal</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Terminal">Terminal</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">The terminal associated with this regulating control.  The terminal is associated instead of a node, since the terminal could connect into either a topological node (bus in bus-branch model) or a connectivity node (detailed switch model).  Sometimes it is useful to model regulation at a terminal of a bus bar object since the bus bar can be present in both a bus-branch model or a model with switch detail.</p>
+               </td>
+            </tr>
+         </table>
+         <h3>Inherited Members</h3>
+         <table/>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">mRID</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">aliasName</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.aliasName">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">name</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div id="TransformerEnd" class="group">
+         <a href="#TransformerEnd">
+            <h2 class="abstract">TransformerEnd</h2>
+         </a>
+         <p class="package">Wires</p>
+         <p class="comment">A conducting connection point of a power transformer. It corresponds to a physical transformer winding terminal.  In earlier CIM versions, the TransformerWinding class served a similar purpose, but this class is more flexible because it associates to terminal but is not a specialization of ConductingEquipment.</p>
+         <h3>Native Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name" id="TransformerEnd.Terminal">Terminal</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">
+                     <a href="#Terminal">Terminal</a>
+                  </p>
+               </td>
+               <td>
+                  <p class="comment">Terminal of the power transformer to which this transformer end belongs.</p>
+               </td>
+            </tr>
+         </table>
+         <h3>Inherited Members</h3>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">mRID</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.mRID">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">aliasName</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.aliasName">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">name</p>
+               </th>
+               <td>
+                  <p class="cardinality">0..1</p>
+               </td>
+               <td class="type">
+                  <p class="type">string</p>
+               </td>
+               <td>
+                  <p>see <a class="superclass" href="#IdentifiedObject.name">IdentifiedObject</a>
+                  </p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <h1>Enumerations</h1>
+      <div id="PhaseCode" class="group">
+         <a href="#PhaseCode">
+            <h2 class="enumerated">PhaseCode</h2>
+         </a>
+         <p class="package">Core</p>
+         <p class="comment">Enumeration of phase identifiers. Allows designation of phases for both transmission and distribution equipment, circuits and loads.</p>
+         <p class="comment">Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.</p>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">A</p>
+               </th>
+               <td>
+                  <p class="comment">Phase A.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">AB</p>
+               </th>
+               <td>
+                  <p class="comment">Phases A and B.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">ABC</p>
+               </th>
+               <td>
+                  <p class="comment">Phases A, B, and C.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">ABCN</p>
+               </th>
+               <td>
+                  <p class="comment">Phases A, B, C, and N.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">ABN</p>
+               </th>
+               <td>
+                  <p class="comment">Phases A, B, and neutral.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">AC</p>
+               </th>
+               <td>
+                  <p class="comment">Phases A and C.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">ACN</p>
+               </th>
+               <td>
+                  <p class="comment">Phases A, C and neutral.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">AN</p>
+               </th>
+               <td>
+                  <p class="comment">Phases A and neutral.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">B</p>
+               </th>
+               <td>
+                  <p class="comment">Phase B.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">BC</p>
+               </th>
+               <td>
+                  <p class="comment">Phases B and C.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">BCN</p>
+               </th>
+               <td>
+                  <p class="comment">Phases B, C, and neutral.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">BN</p>
+               </th>
+               <td>
+                  <p class="comment">Phases B and neutral.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">C</p>
+               </th>
+               <td>
+                  <p class="comment">Phase C.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">CN</p>
+               </th>
+               <td>
+                  <p class="comment">Phases C and neutral.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">N</p>
+               </th>
+               <td>
+                  <p class="comment">Neutral phase.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">s1</p>
+               </th>
+               <td>
+                  <p class="comment">Secondary phase 1.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">s12</p>
+               </th>
+               <td>
+                  <p class="comment">Secondary phase 1 and 2.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">s12N</p>
+               </th>
+               <td>
+                  <p class="comment">Secondary phases 1, 2, and neutral.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">s1N</p>
+               </th>
+               <td>
+                  <p class="comment">Secondary phase 1 and neutral.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">s2</p>
+               </th>
+               <td>
+                  <p class="comment">Secondary phase 2.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">s2N</p>
+               </th>
+               <td>
+                  <p class="comment">Secondary phase 2 and neutral.</p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div id="RegulatingControlModeKind" class="group">
+         <a href="#RegulatingControlModeKind">
+            <h2 class="enumerated">RegulatingControlModeKind</h2>
+         </a>
+         <p class="package">Wires</p>
+         <p class="comment">The kind of regulation model.   For example regulating voltage, reactive power, active power, etc.</p>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">activePower</p>
+               </th>
+               <td>
+                  <p class="comment">Active power is specified.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">admittance</p>
+               </th>
+               <td>
+                  <p class="comment">Admittance is specified.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">currentFlow</p>
+               </th>
+               <td>
+                  <p class="comment">Current flow is specified.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">fixed</p>
+               </th>
+               <td>
+                  <p class="comment">The regulation mode is fixed, and thus not regulating.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">powerFactor</p>
+               </th>
+               <td>
+                  <p class="comment">Power factor is specified.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">reactivePower</p>
+               </th>
+               <td>
+                  <p class="comment">Reactive power is specified.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">temperature</p>
+               </th>
+               <td>
+                  <p class="comment">Control switches on/off based on the local temperature (i.e., a thermostat).</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">timeScheduled</p>
+               </th>
+               <td>
+                  <p class="comment">Control switches on/off by time of day. The times may change on the weekend, or in different seasons.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">voltage</p>
+               </th>
+               <td>
+                  <p class="comment">Voltage is specified.</p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div id="WindingConnection" class="group">
+         <a href="#WindingConnection">
+            <h2 class="enumerated">WindingConnection</h2>
+         </a>
+         <p class="package">Wires</p>
+         <p class="comment">Winding connection type.</p>
+         <table>
+            <tr>
+               <th>
+                  <p class="name">A</p>
+               </th>
+               <td>
+                  <p class="comment">Autotransformer common winding</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">D</p>
+               </th>
+               <td>
+                  <p class="comment">Delta</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">I</p>
+               </th>
+               <td>
+                  <p class="comment">Independent winding, for single-phase connections</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">Y</p>
+               </th>
+               <td>
+                  <p class="comment">Wye</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">Yn</p>
+               </th>
+               <td>
+                  <p class="comment">Wye, with neutral brought out for grounding.</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">Z</p>
+               </th>
+               <td>
+                  <p class="comment">ZigZag</p>
+               </td>
+            </tr>
+            <tr>
+               <th>
+                  <p class="name">Zn</p>
+               </th>
+               <td>
+                  <p class="comment">ZigZag, with neutral brought out for grounding.</p>
+               </td>
+            </tr>
+         </table>
+      </div>
+      <h1>Compound Types</h1>
+      <h1>Datatypes</h1>
+      <div id="ApparentPower" class="group">
+         <a href="#ApparentPower">
+            <h2 class="domain">ApparentPower</h2>
+         </a>
+         <p class="package">Domain</p>
+         <p class="comment">Product of the RMS value of the voltage and the RMS value of the current.</p>
+         <p class="declaration">XSD type: <span class="xsdtype">float</span>
+         </p>
+      </div>
+      <div id="Conductance" class="group">
+         <a href="#Conductance">
+            <h2 class="domain">Conductance</h2>
+         </a>
+         <p class="package">Domain</p>
+         <p class="comment">Factor by which voltage must be multiplied to give corresponding power lost from a circuit. Real part of admittance.</p>
+         <p class="declaration">XSD type: <span class="xsdtype">float</span>
+         </p>
+      </div>
+      <div id="Reactance" class="group">
+         <a href="#Reactance">
+            <h2 class="domain">Reactance</h2>
+         </a>
+         <p class="package">Domain</p>
+         <p class="comment">Reactance (imaginary part of impedance), at rated frequency.</p>
+         <p class="declaration">XSD type: <span class="xsdtype">float</span>
+         </p>
+      </div>
+      <div id="Resistance" class="group">
+         <a href="#Resistance">
+            <h2 class="domain">Resistance</h2>
+         </a>
+         <p class="package">Domain</p>
+         <p class="comment">Resistance (real part of impedance).</p>
+         <p class="declaration">XSD type: <span class="xsdtype">float</span>
+         </p>
+      </div>
+      <div id="Seconds" class="group">
+         <a href="#Seconds">
+            <h2 class="domain">Seconds</h2>
+         </a>
+         <p class="package">Domain</p>
+         <p class="comment">Time, in seconds.</p>
+         <p class="declaration">XSD type: <span class="xsdtype">float</span>
+         </p>
+      </div>
+      <div id="Susceptance" class="group">
+         <a href="#Susceptance">
+            <h2 class="domain">Susceptance</h2>
+         </a>
+         <p class="package">Domain</p>
+         <p class="comment">Imaginary part of admittance.</p>
+         <p class="declaration">XSD type: <span class="xsdtype">float</span>
+         </p>
+      </div>
+      <div id="Voltage" class="group">
+         <a href="#Voltage">
+            <h2 class="domain">Voltage</h2>
+         </a>
+         <p class="package">Domain</p>
+         <p class="comment">Electrical voltage.</p>
+         <p class="declaration">XSD type: <span class="xsdtype">float</span>
+         </p>
+      </div>
+   </body>
+</html>
