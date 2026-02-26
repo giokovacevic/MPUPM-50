@@ -22,7 +22,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
         public string VectorGroup { get => vectorGroup; set => vectorGroup = value; }
         public List<long> PowerTransformerEnds { get => powerTransformerEnds; set => powerTransformerEnds = value; }
 
-        public override bool Equals(object obj) 
+        public override bool Equals(object obj)
         {
             if (base.Equals(obj))
             {

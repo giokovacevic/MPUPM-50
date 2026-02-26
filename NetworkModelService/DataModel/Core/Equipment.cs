@@ -50,14 +50,14 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
                 case ModelCode.EQUIPMENT_NORMALLYINSERVICE:
                 case ModelCode.EQUIPMENT_AGGREGATE:
                     return true;
-                default: 
+                default:
                     return base.HasProperty(property);
             }
         }
 
         public override void GetProperty(Property property)
         {
-            switch(property.Id)
+            switch (property.Id)
             {
                 case ModelCode.EQUIPMENT_AGGREGATE:
                     property.SetValue(aggregate);
@@ -73,7 +73,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 
         public override void SetProperty(Property property)
         {
-            switch(property.Id)
+            switch (property.Id)
             {
                 case ModelCode.EQUIPMENT_AGGREGATE:
                     aggregate = property.AsBool();

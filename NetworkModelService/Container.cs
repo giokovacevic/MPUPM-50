@@ -106,57 +106,57 @@ namespace FTN.Services.NetworkModelService
 		public override int GetHashCode()
 		{
 			return base.GetHashCode();
-		}				
+		}
 
-		# endregion operators
+        #endregion operators
 
-		/// <summary>
-		/// Creates entity for specified global inside the container.
-		/// </summary>
-		/// <param name="globalId">Global id of the entity for insert</param>		
-		/// <returns>Created entity (identified object).</returns>
-		public IdentifiedObject CreateEntity(long globalId)
-		{
-			short type = ModelCodeHelper.ExtractTypeFromGlobalId(globalId);
+        /// <summary>
+        /// Creates entity for specified global inside the container.
+        /// </summary>
+        /// <param name="globalId">Global id of the entity for insert</param>		
+        /// <returns>Created entity (identified object).</returns>
+        public IdentifiedObject CreateEntity(long globalId)
+        {
+            short type = ModelCodeHelper.ExtractTypeFromGlobalId(globalId);
 
-			IdentifiedObject io = null;			
-			switch ((DMSType)type)
-			{
-				case DMSType.POWERTR:
-					io = new PowerTransformer(globalId);
-					break;
+            IdentifiedObject io = null;
+            switch ((DMSType)type)
+            {
+                case DMSType.POWERTR:
+                    io = new PowerTransformer(globalId);
+                    break;
 
-				case DMSType.POWERTREND:
-					io = new PowerTransformerEnd(globalId);
-					break;
-				case DMSType.TAPCHANGER:
-					io = new TapChanger(globalId);
-					break;
-				case DMSType.TAPCHANGERCTRL:
-					io = new TapChangerControl(globalId);
-					break;
-				case DMSType.TERMINAL:
-					io = new Terminal(globalId);
-					break;			
+                case DMSType.POWERTREND:
+                    io = new PowerTransformerEnd(globalId);
+                    break;
+                case DMSType.TAPCHANGER:
+                    io = new TapChanger(globalId);
+                    break;
+                case DMSType.TAPCHANGERCTRL:
+                    io = new TapChangerControl(globalId);
+                    break;
+                case DMSType.TERMINAL:
+                    io = new Terminal(globalId);
+                    break;
 
-				default:					
-					string message = String.Format("Failed to create entity because specified type ({0}) is not supported.", type);
-					CommonTrace.WriteTrace(CommonTrace.TraceError, message);
-					throw new Exception(message);					
-			}
+                default:
+                    string message = String.Format("Failed to create entity because specified type ({0}) is not supported.", type);
+                    CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+                    throw new Exception(message);
+            }
 
             // Add entity to map
-			this.AddEntity(io);
+            this.AddEntity(io);
 
-			return io;
-		}		
+            return io;
+        }
 
-		/// <summary>
-		/// Checks if entity exists in container.
-		/// </summary>
-		/// <param name="globalId">Global id of the entity that should be checked</param>
-		/// <returns>TRUE if the entity is found.</returns>
-		public bool EntityExists(long globalId)
+        /// <summary>
+        /// Checks if entity exists in container.
+        /// </summary>
+        /// <param name="globalId">Global id of the entity that should be checked</param>
+        /// <returns>TRUE if the entity is found.</returns>
+        public bool EntityExists(long globalId)
 		{
 			return entities.ContainsKey(globalId);
 		}	

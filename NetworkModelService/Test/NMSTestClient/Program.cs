@@ -44,11 +44,14 @@ namespace FTN.Services.NetworkModelService.TestClient
             Console.WriteLine(message);
             CommonTrace.WriteTrace(CommonTrace.TraceInfo, message);
 
+            
 
 			try
 			{
 				TestGda tgda = new TestGda();
-				
+
+                tgda.ProveriBazuHitno();
+                tgda.Metoda2_IspisiImenaSvihTransformatora();
 
 				string str = string.Empty;
 				do

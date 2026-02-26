@@ -862,32 +862,32 @@ namespace FTN.Common
 			return (ModelCode)Enum.Parse(typeof(ModelCode), type.ToString());
 		}
 
-		# region Initialization of metadata
+        #region Initialization of metadata
 
-		private void InitializeTypeIdsInInsertOrder()
-		{			
-			typeIdsInInsertOrder.Add(ModelCode.TERMINAL);
-			typeIdsInInsertOrder.Add(ModelCode.POWERTR);
-			typeIdsInInsertOrder.Add(ModelCode.POWERTREND);
-			typeIdsInInsertOrder.Add(ModelCode.TAPCHANGERCTRL);
-			typeIdsInInsertOrder.Add(ModelCode.TAPCHANGER);			
-		}
+        private void InitializeTypeIdsInInsertOrder()
+        {
+            typeIdsInInsertOrder.Add(ModelCode.TERMINAL);
+            typeIdsInInsertOrder.Add(ModelCode.POWERTR);
+            typeIdsInInsertOrder.Add(ModelCode.POWERTREND);
+            typeIdsInInsertOrder.Add(ModelCode.TAPCHANGERCTRL);
+            typeIdsInInsertOrder.Add(ModelCode.TAPCHANGER);
+        }
 
-		private void InitializeNotSettablePropertyIds()
-		{			
-			notSettablePropertyIds.Add(ModelCode.IDOBJ_GID);
-			notSettablePropertyIds.Add(ModelCode.POWERTR_POWERTRENDS);
-			notSettablePropertyIds.Add(ModelCode.TERMINAL_REGULATINGCTRLS);
-			notSettablePropertyIds.Add(ModelCode.TERMINAL_TRANSFORMERENDS);
+        private void InitializeNotSettablePropertyIds()
+        {
+            notSettablePropertyIds.Add(ModelCode.IDOBJ_GID);
+            notSettablePropertyIds.Add(ModelCode.POWERTR_POWERTRENDS);
+            notSettablePropertyIds.Add(ModelCode.TERMINAL_REGULATINGCTRLS);
+            notSettablePropertyIds.Add(ModelCode.TERMINAL_TRANSFORMERENDS);
             notSettablePropertyIds.Add(ModelCode.TAPCHANGERCTRL_TAPCHANGERS);
             notSettablePropertyIds.Add(ModelCode.CONDUCTINGEQUIPMENT_TERMINALS);
         }
-	
-		# endregion Initialization of metadata
 
-		# region Switching between enums and values
+        #endregion Initialization of metadata
 
-		private List<ModelCode> SwitchLongsToModelCodes(List<long> longValues)
+        #region Switching between enums and values
+
+        private List<ModelCode> SwitchLongsToModelCodes(List<long> longValues)
 		{
 			List<ModelCode> result = new List<ModelCode>();
 

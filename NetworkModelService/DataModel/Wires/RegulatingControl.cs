@@ -107,10 +107,10 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
                     discrete = property.AsBool();
                     break;
                 case ModelCode.REGULATINGCTRL_MODE:
-                    mode = (RegulatingControlModeKind) property.AsEnum();
+                    mode = (RegulatingControlModeKind)property.AsEnum();
                     break;
                 case ModelCode.REGULATINGCTRL_MONITOREDPHASE:
-                    monitoredPhase = (PhaseCode) property.AsEnum();
+                    monitoredPhase = (PhaseCode)property.AsEnum();
                     break;
                 case ModelCode.REGULATINGCTRL_TARGETRANGE:
                     targetRange = property.AsFloat();

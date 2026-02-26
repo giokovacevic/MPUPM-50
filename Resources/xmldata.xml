@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:cim="http://iec.ch/TC57/2010/CIM-schema-cim15#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+	<cim:PowerTransformer rdf:ID="_T1">
+		<cim:IdentifiedObject.name>Trafo_1</cim:IdentifiedObject.name>
+		<cim:PowerTransformer.vectorGroup>Yn d11</cim:PowerTransformer.vectorGroup>
+	</cim:PowerTransformer>
+
+	<cim:PowerTransformerEnd rdf:ID="_TE1">
+		<cim:IdentifiedObject.name>T1_Namotaj_Visoki</cim:IdentifiedObject.name>
+		<cim:PowerTransformerEnd.r>0.45</cim:PowerTransformerEnd.r>
+		<cim:PowerTransformerEnd.x>12.5</cim:PowerTransformerEnd.x>
+		<cim:PowerTransformerEnd.PowerTransformer rdf:resource="#_T1"/>
+	</cim:PowerTransformerEnd>
+
+	<cim:PowerTransformerEnd rdf:ID="_TE2">
+		<cim:IdentifiedObject.name>T1_Namotaj_Niski</cim:IdentifiedObject.name>
+		<cim:PowerTransformerEnd.r>0.05</cim:PowerTransformerEnd.r>
+		<cim:PowerTransformerEnd.x>2.1</cim:PowerTransformerEnd.x>
+		<cim:PowerTransformerEnd.PowerTransformer rdf:resource="#_T1"/>
+	</cim:PowerTransformerEnd>
+
+
+	<cim:PowerTransformer rdf:ID="_T2">
+		<cim:IdentifiedObject.name>Trafo_2</cim:IdentifiedObject.name>
+		<cim:PowerTransformer.vectorGroup>Yn y0</cim:PowerTransformer.vectorGroup>
+	</cim:PowerTransformer>
+
+	<cim:PowerTransformerEnd rdf:ID="_TE3">
+		<cim:IdentifiedObject.name>T2_Namotaj_Visoki</cim:IdentifiedObject.name>
+		<cim:PowerTransformerEnd.r>0.38</cim:PowerTransformerEnd.r>
+		<cim:PowerTransformerEnd.x>11.2</cim:PowerTransformerEnd.x>
+		<cim:PowerTransformerEnd.PowerTransformer rdf:resource="#_T2"/>
+	</cim:PowerTransformerEnd>
+
+	<cim:PowerTransformerEnd rdf:ID="_TE4">
+		<cim:IdentifiedObject.name>T2_Namotaj_Niski</cim:IdentifiedObject.name>
+		<cim:PowerTransformerEnd.r>0.04</cim:PowerTransformerEnd.r>
+		<cim:PowerTransformerEnd.x>1.8</cim:PowerTransformerEnd.x>
+		<cim:PowerTransformerEnd.PowerTransformer rdf:resource="#_T2"/>
+	</cim:PowerTransformerEnd>
+
+
+	<cim:PowerTransformer rdf:ID="_T3">
+		<cim:IdentifiedObject.name>Trafo_3</cim:IdentifiedObject.name>
+		<cim:PowerTransformer.vectorGroup>Dd0</cim:PowerTransformer.vectorGroup>
+	</cim:PowerTransformer>
+
+	<cim:PowerTransformerEnd rdf:ID="_TE5">
+		<cim:IdentifiedObject.name>T3_Namotaj_Visoki</cim:IdentifiedObject.name>
+		<cim:PowerTransformerEnd.r>0.52</cim:PowerTransformerEnd.r>
+		<cim:PowerTransformerEnd.x>13.1</cim:PowerTransformerEnd.x>
+		<cim:PowerTransformerEnd.PowerTransformer rdf:resource="#_T3"/>
+	</cim:PowerTransformerEnd>
+
+	<cim:PowerTransformerEnd rdf:ID="_TE6">
+		<cim:IdentifiedObject.name>T3_Namotaj_Niski</cim:IdentifiedObject.name>
+		<cim:PowerTransformerEnd.r>0.06</cim:PowerTransformerEnd.r>
+		<cim:PowerTransformerEnd.x>2.5</cim:PowerTransformerEnd.x>
+		<cim:PowerTransformerEnd.PowerTransformer rdf:resource="#_T3"/>
+	</cim:PowerTransformerEnd>
+
+</rdf:RDF>

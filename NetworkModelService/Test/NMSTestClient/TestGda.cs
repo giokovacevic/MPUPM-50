@@ -87,7 +87,49 @@ namespace TelventDMS.Services.NetworkModelService.TestClient.Tests
 			return rd;
 		}
 
-		public List<long> GetExtentValues(ModelCode modelCode)
+        public void ProveriBazuHitno()
+        {
+            Console.WriteLine("\n--- PROVERA BAZE PREKO ENUMA ---");
+
+            // Lista tipova koje želimo da proverimo - koristi nazive iz SVOG DMSType enuma
+            List<DMSType> tipovi = new List<DMSType> { DMSType.POWERTR, DMSType.POWERTREND };
+
+            foreach (DMSType t in tipovi)
+            {
+                try
+                {
+                    // Koristimo tvoj modelResourcesDesc da dobijemo "legalan" ModelCode
+                    ModelCode mc = modelResourcesDesc.GetModelCodeFromType(t);
+
+                    // Pozivamo tvoju postojeću metodu GetExtentValues iz TestGda klase
+                    List<long> ids = GetExtentValues(mc);
+
+                    Console.WriteLine($"Tip {t}: Pronađeno {ids.Count} objekata.");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Greška za {t}: {e.Message}");
+                }
+            }
+        }
+
+        public void Metoda2_IspisiImenaSvihTransformatora()
+        {
+            List<long> trIds = GetExtentValues(ModelCode.POWERTR);
+            Console.WriteLine("\nSpisak imena transformatora u bazi:");
+
+            foreach (long gid in trIds)
+            {
+                // Tražimo samo NAME svojstvo
+                ResourceDescription rd = GdaQueryProxy.GetValues(gid, new List<ModelCode> { ModelCode.IDOBJ_NAME });
+
+                // Izvlačimo string vrednost iz rezultata
+                string ime = rd.GetProperty(ModelCode.IDOBJ_NAME).PropertyValue.StringValue;
+                Console.WriteLine($"GID: 0x{gid:X16} | Ime: {ime}");
+            }
+        }
+
+        public List<long> GetExtentValues(ModelCode modelCode)
 		{
             string message = "Getting extent values method started.";
             Console.WriteLine(message);
@@ -164,8 +206,9 @@ namespace TelventDMS.Services.NetworkModelService.TestClient.Tests
 			try
 			{						
 				List<ModelCode> properties = new List<ModelCode>();
-                properties.Add(ModelCode.IDOBJ_ALIASNAME);
+                //properties.Add(ModelCode.IDOBJ_DESCRIPTION);
                 properties.Add(ModelCode.IDOBJ_MRID);
+                properties.Add(ModelCode.IDOBJ_ALIASNAME);
                 properties.Add(ModelCode.IDOBJ_NAME);
 						
 				int iteratorId = GdaQueryProxy.GetRelatedValues(sourceGlobalId, properties, association);

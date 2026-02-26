@@ -11,8 +11,8 @@ namespace FTN.Common
 
 		public EnumDescs()
 		{
-			property2enumType.Add(ModelCode.TERMINAL_PHASES, typeof(PhaseCode));
-			property2enumType.Add(ModelCode.POWERTREND_CONNECTIONKIND, typeof(WindingConnection));
+            property2enumType.Add(ModelCode.TERMINAL_PHASES, typeof(PhaseCode));
+            property2enumType.Add(ModelCode.POWERTREND_CONNECTIONKIND, typeof(WindingConnection));
             property2enumType.Add(ModelCode.REGULATINGCTRL_MONITOREDPHASE, typeof(PhaseCode));
             property2enumType.Add(ModelCode.REGULATINGCTRL_MODE, typeof(RegulatingControlModeKind));
         }

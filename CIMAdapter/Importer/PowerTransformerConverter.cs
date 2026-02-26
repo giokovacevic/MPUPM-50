@@ -9,33 +9,33 @@
 	public static class PowerTransformerConverter
 	{
 
-		#region Populate ResourceDescription
-		public static void PopulateIdentifiedObjectProperties(FTN.IdentifiedObject cimIdentifiedObject, ResourceDescription rd)
-		{
-			if ((cimIdentifiedObject != null) && (rd != null))
-			{
-				if (cimIdentifiedObject.MRIDHasValue)
-				{
-					rd.AddProperty(new Property(ModelCode.IDOBJ_MRID, cimIdentifiedObject.MRID));
-				}
-				if (cimIdentifiedObject.NameHasValue)
-				{
-					rd.AddProperty(new Property(ModelCode.IDOBJ_NAME, cimIdentifiedObject.Name));
-				}
-				if (cimIdentifiedObject.AliasNameHasValue)
-				{
-					rd.AddProperty(new Property(ModelCode.IDOBJ_ALIASNAME, cimIdentifiedObject.AliasName));
-				}
-			}
-		}
+        #region Populate ResourceDescription
+        public static void PopulateIdentifiedObjectProperties(FTN.IdentifiedObject cimIdentifiedObject, ResourceDescription rd)
+        {
+            if ((cimIdentifiedObject != null) && (rd != null))
+            {
+                if (cimIdentifiedObject.MRIDHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.IDOBJ_MRID, cimIdentifiedObject.MRID));
+                }
+                if (cimIdentifiedObject.NameHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.IDOBJ_NAME, cimIdentifiedObject.Name));
+                }
+                if (cimIdentifiedObject.AliasNameHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.IDOBJ_ALIASNAME, cimIdentifiedObject.AliasName));
+                }
+            }
+        }
 
-		public static void PopulatePowerSystemResourceProperties(FTN.PowerSystemResource cimPowerSystemResource, ResourceDescription rd)
-		{
-			if ((cimPowerSystemResource != null) && (rd != null))
-			{
-				PowerTransformerConverter.PopulateIdentifiedObjectProperties(cimPowerSystemResource, rd);
-			}
-		}
+        public static void PopulatePowerSystemResourceProperties(FTN.PowerSystemResource cimPowerSystemResource, ResourceDescription rd)
+        {
+            if ((cimPowerSystemResource != null) && (rd != null))
+            {
+                PowerTransformerConverter.PopulateIdentifiedObjectProperties(cimPowerSystemResource, rd);
+            }
+        }
 
         public static void PopulateTerminalProperties(FTN.Terminal terminal, ResourceDescription rd, ImportHelper importHelper, TransformAndLoadReport report)
         {
@@ -211,7 +211,7 @@
             {
                 PowerTransformerConverter.PopulateEquipmentProperties(conductingEquipment, rd);
 
-				// + more terminals
+                // + more terminals
             }
         }
 
@@ -336,69 +336,69 @@
         }
 
 
-		#endregion Populate ResourceDescription
+        #endregion Populate ResourceDescription
 
-		#region Enums convert
-		public static PhaseCode GetDMSPhaseCode(FTN.PhaseCode phases)
-		{
-			switch (phases)
-			{
-				case FTN.PhaseCode.A:
-					return PhaseCode.A;
-				case FTN.PhaseCode.AB:
-					return PhaseCode.AB;
-				case FTN.PhaseCode.ABC:
-					return PhaseCode.ABC;
-				case FTN.PhaseCode.ABCN:
-					return PhaseCode.ABCN;
-				case FTN.PhaseCode.ABN:
-					return PhaseCode.ABN;
-				case FTN.PhaseCode.AC:
-					return PhaseCode.AC;
-				case FTN.PhaseCode.ACN:
-					return PhaseCode.ACN;
-				case FTN.PhaseCode.AN:
-					return PhaseCode.AN;
-				case FTN.PhaseCode.B:
-					return PhaseCode.B;
-				case FTN.PhaseCode.BC:
-					return PhaseCode.BC;
-				case FTN.PhaseCode.BCN:
-					return PhaseCode.BCN;
-				case FTN.PhaseCode.BN:
-					return PhaseCode.BN;
-				case FTN.PhaseCode.C:
-					return PhaseCode.C;
-				case FTN.PhaseCode.CN:
-					return PhaseCode.CN;
-				case FTN.PhaseCode.N:
-					return PhaseCode.N;
-				case FTN.PhaseCode.s12N:
-					return PhaseCode.ABN;
-				case FTN.PhaseCode.s1N:
-					return PhaseCode.AN;
-				case FTN.PhaseCode.s2N:
-					return PhaseCode.BN;
-				default: return PhaseCode.Unknown;
-			}
-		}
+        #region Enums convert
+        public static PhaseCode GetDMSPhaseCode(FTN.PhaseCode phases)
+        {
+            switch (phases)
+            {
+                case FTN.PhaseCode.A:
+                    return PhaseCode.A;
+                case FTN.PhaseCode.AB:
+                    return PhaseCode.AB;
+                case FTN.PhaseCode.ABC:
+                    return PhaseCode.ABC;
+                case FTN.PhaseCode.ABCN:
+                    return PhaseCode.ABCN;
+                case FTN.PhaseCode.ABN:
+                    return PhaseCode.ABN;
+                case FTN.PhaseCode.AC:
+                    return PhaseCode.AC;
+                case FTN.PhaseCode.ACN:
+                    return PhaseCode.ACN;
+                case FTN.PhaseCode.AN:
+                    return PhaseCode.AN;
+                case FTN.PhaseCode.B:
+                    return PhaseCode.B;
+                case FTN.PhaseCode.BC:
+                    return PhaseCode.BC;
+                case FTN.PhaseCode.BCN:
+                    return PhaseCode.BCN;
+                case FTN.PhaseCode.BN:
+                    return PhaseCode.BN;
+                case FTN.PhaseCode.C:
+                    return PhaseCode.C;
+                case FTN.PhaseCode.CN:
+                    return PhaseCode.CN;
+                case FTN.PhaseCode.N:
+                    return PhaseCode.N;
+                case FTN.PhaseCode.s12N:
+                    return PhaseCode.ABN;
+                case FTN.PhaseCode.s1N:
+                    return PhaseCode.AN;
+                case FTN.PhaseCode.s2N:
+                    return PhaseCode.BN;
+                default: return PhaseCode.Unknown;
+            }
+        }
 
-		public static WindingConnection GetDMSWindingConnection(FTN.WindingConnection windingConnection)
-		{
-			switch (windingConnection)
-			{
-				case FTN.WindingConnection.D:
-					return WindingConnection.D;
-				case FTN.WindingConnection.I:
-					return WindingConnection.I;
-				case FTN.WindingConnection.Z:
-					return WindingConnection.Z;
-				case FTN.WindingConnection.Y:
-					return WindingConnection.Y;
-				default:
-					return WindingConnection.Y;
-			}
-		}
+        public static WindingConnection GetDMSWindingConnection(FTN.WindingConnection windingConnection)
+        {
+            switch (windingConnection)
+            {
+                case FTN.WindingConnection.D:
+                    return WindingConnection.D;
+                case FTN.WindingConnection.I:
+                    return WindingConnection.I;
+                case FTN.WindingConnection.Z:
+                    return WindingConnection.Z;
+                case FTN.WindingConnection.Y:
+                    return WindingConnection.Y;
+                default:
+                    return WindingConnection.Y;
+            }
+        }
 
         public static RegulatingControlModeKind GetDMSRegulatingControlModeKind(FTN.RegulatingControlModeKind regulatingControlModeKind)
         {

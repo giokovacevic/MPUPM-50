@@ -1,5 +1,4 @@
 ﻿using FTN.Common;
-using FTN.Services.NetworkModelService.DataModel.Wires;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +33,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 
         public override bool HasProperty(ModelCode property)
         {
-            switch(property)
+            switch (property)
             {
                 case ModelCode.TERMINAL_CONNECTED:
                 case ModelCode.TERMINAL_PHASES:
@@ -73,7 +72,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 
         public override void GetProperty(Property property)
         {
-            switch(property.Id)
+            switch (property.Id)
             {
                 case ModelCode.TERMINAL_CONNECTED:
                     property.SetValue(connected);
@@ -133,12 +132,13 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 
         public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
         {
-            if(conductingEquipment != 0 && (refType == TypeOfReference.Reference || refType  == TypeOfReference.Both))
+            if (conductingEquipment != 0 && (refType == TypeOfReference.Reference || refType == TypeOfReference.Both))
             {
                 references[ModelCode.TERMINAL_CONDUCTINGEQUIPMENT] = new List<long> { conductingEquipment };
             }
 
-            if(transformerEnds!= null && transformerEnds.Count > 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both)) {
+            if (transformerEnds != null && transformerEnds.Count > 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
+            {
                 references[ModelCode.TERMINAL_TRANSFORMERENDS] = new List<long>(transformerEnds);
             }
 
@@ -152,7 +152,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
 
         public override void AddReference(ModelCode referenceId, long globalId)
         {
-            switch(referenceId)
+            switch (referenceId)
             {
                 case ModelCode.TRANSFORMEREND_TERMINAL:
                     transformerEnds.Add(globalId);
@@ -171,7 +171,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
             switch (referenceId)
             {
                 case ModelCode.TRANSFORMEREND_TERMINAL:
-                    if(transformerEnds.Contains(globalId))
+                    if (transformerEnds.Contains(globalId))
                     {
                         transformerEnds.Remove(globalId);
                     }

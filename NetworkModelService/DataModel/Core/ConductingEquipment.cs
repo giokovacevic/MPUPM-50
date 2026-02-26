@@ -1,5 +1,4 @@
 ﻿using FTN.Common;
-using FTN.Services.NetworkModelService.DataModel.Wires;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +10,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
     public class ConductingEquipment : Equipment
     {
         private List<long> terminals = new List<long>();
-       
+
         public ConductingEquipment(long globalId) : base(globalId)
         {
         }
