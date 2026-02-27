@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF xmlns:cim="http://iec.ch/TC57/2010/CIM-schema-cim15#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 
-
 	<cim:PowerTransformer rdf:ID="_T1">
 		<cim:IdentifiedObject.mRID>GUID_Trafo_1</cim:IdentifiedObject.mRID>
 		<cim:IdentifiedObject.name>Trafo_1</cim:IdentifiedObject.name>
@@ -29,8 +28,17 @@
 		<cim:PowerTransformer.vectorGroup>Dyn5</cim:PowerTransformer.vectorGroup>
 	</cim:PowerTransformer>
 
+	<cim:Terminal rdf:ID="_TERMINAL1">
+		<cim:IdentifiedObject.mRID>_TERMINAL1</cim:IdentifiedObject.mRID>
+		<cim:IdentifiedObject.name>Terminal 1</cim:IdentifiedObject.name>
+		<cim:IdentifiedObject.aliasName>T1_Alias</cim:IdentifiedObject.aliasName>
+		<cim:Terminal.connected>true</cim:Terminal.connected>
+		<cim:Terminal.phases>N</cim:Terminal.phases>
+		<cim:Terminal.sequenceNumber>1</cim:Terminal.sequenceNumber>
+	</cim:Terminal>
+
 	<cim:PowerTransformerEnd rdf:ID="_TE1">
-		<cim:IdentifiedObject.mRID>GUID_T2_Namotaj_Visoki</cim:IdentifiedObject.mRID>
+		<cim:IdentifiedObject.mRID>GUID_TE1_Namotaj_Visoki</cim:IdentifiedObject.mRID>
 		<cim:IdentifiedObject.name>T1_Namotaj_Visoki</cim:IdentifiedObject.name>
 		<cim:IdentifiedObject.aliasName>110.0kv</cim:IdentifiedObject.aliasName>
 		<cim:PowerTransformerEnd.b>0.00001</cim:PowerTransformerEnd.b>
@@ -46,10 +54,11 @@
 		<cim:PowerTransformerEnd.x>10.5</cim:PowerTransformerEnd.x>
 		<cim:PowerTransformerEnd.x0>12.5</cim:PowerTransformerEnd.x0>
 		<cim:PowerTransformerEnd.PowerTransformer rdf:resource="#_T2"/>
+		<cim:TransformerEnd.Terminal rdf:resource="#_TERMINAL1"/>
 	</cim:PowerTransformerEnd>
 
 	<cim:PowerTransformerEnd rdf:ID="_TE2">
-		<cim:IdentifiedObject.mRID>GUID_T2_Namotaj_Visoki</cim:IdentifiedObject.mRID>
+		<cim:IdentifiedObject.mRID>GUID_TE2_Namotaj_Visoki</cim:IdentifiedObject.mRID>
 		<cim:IdentifiedObject.name>T2_Namotaj_Visoki</cim:IdentifiedObject.name>
 		<cim:IdentifiedObject.aliasName>10.0kv</cim:IdentifiedObject.aliasName>
 		<cim:PowerTransformerEnd.b>0.000012</cim:PowerTransformerEnd.b>
@@ -65,10 +74,11 @@
 		<cim:PowerTransformerEnd.x>12.5</cim:PowerTransformerEnd.x>
 		<cim:PowerTransformerEnd.x0>7.5</cim:PowerTransformerEnd.x0>
 		<cim:PowerTransformerEnd.PowerTransformer rdf:resource="#_T1"/>
+		<cim:TransformerEnd.Terminal rdf:resource="#_TERMINAL1"/>
 	</cim:PowerTransformerEnd>
 
 	<cim:PowerTransformerEnd rdf:ID="_TE3">
-		<cim:IdentifiedObject.mRID>GUID_T4_Namotaj_Srednji</cim:IdentifiedObject.mRID>
+		<cim:IdentifiedObject.mRID>GUID_TE3_Namotaj_Srednji</cim:IdentifiedObject.mRID>
 		<cim:IdentifiedObject.name>T4_Namotaj_Srednji</cim:IdentifiedObject.name>
 		<cim:IdentifiedObject.aliasName>35.0kv</cim:IdentifiedObject.aliasName>
 		<cim:PowerTransformerEnd.b>0.000015</cim:PowerTransformerEnd.b>
@@ -84,10 +94,11 @@
 		<cim:PowerTransformerEnd.x>14.5</cim:PowerTransformerEnd.x>
 		<cim:PowerTransformerEnd.x0>6.5</cim:PowerTransformerEnd.x0>
 		<cim:PowerTransformerEnd.PowerTransformer rdf:resource="#_T3"/>
+		<cim:TransformerEnd.Terminal rdf:resource="#_TERMINAL1"/>
 	</cim:PowerTransformerEnd>
 
 	<cim:PowerTransformerEnd rdf:ID="_TE4">
-		<cim:IdentifiedObject.mRID>GUID_T4_Namotaj_Srednji</cim:IdentifiedObject.mRID>
+		<cim:IdentifiedObject.mRID>GUID_TE4_Namotaj_Srednji</cim:IdentifiedObject.mRID>
 		<cim:IdentifiedObject.name>T4_Namotaj_Srednji</cim:IdentifiedObject.name>
 		<cim:IdentifiedObject.aliasName>20.0kv</cim:IdentifiedObject.aliasName>
 		<cim:PowerTransformerEnd.b>0.0003</cim:PowerTransformerEnd.b>
@@ -103,10 +114,11 @@
 		<cim:PowerTransformerEnd.x>18.5</cim:PowerTransformerEnd.x>
 		<cim:PowerTransformerEnd.x0>10.5</cim:PowerTransformerEnd.x0>
 		<cim:PowerTransformerEnd.PowerTransformer rdf:resource="#_T1"/>
+		<cim:TransformerEnd.Terminal rdf:resource="#_TERMINAL1"/>
 	</cim:PowerTransformerEnd>
 
 	<cim:PowerTransformerEnd rdf:ID="_TE5">
-		<cim:IdentifiedObject.mRID>GUID_T5_Namotaj_Niski</cim:IdentifiedObject.mRID>
+		<cim:IdentifiedObject.mRID>GUID_TE5_Namotaj_Niski</cim:IdentifiedObject.mRID>
 		<cim:IdentifiedObject.name>T5_Namotaj_Niski</cim:IdentifiedObject.name>
 		<cim:IdentifiedObject.aliasName>20.0kv</cim:IdentifiedObject.aliasName>
 		<cim:PowerTransformerEnd.b>0.000011</cim:PowerTransformerEnd.b>
@@ -122,10 +134,11 @@
 		<cim:PowerTransformerEnd.x>16.5</cim:PowerTransformerEnd.x>
 		<cim:PowerTransformerEnd.x0>9</cim:PowerTransformerEnd.x0>
 		<cim:PowerTransformerEnd.PowerTransformer rdf:resource="#_T2"/>
+		<cim:TransformerEnd.Terminal rdf:resource="#_TERMINAL1"/>
 	</cim:PowerTransformerEnd>
 
 	<cim:PowerTransformerEnd rdf:ID="_TE6">
-		<cim:IdentifiedObject.mRID>GUID_T6_Namotaj_Visoki</cim:IdentifiedObject.mRID>
+		<cim:IdentifiedObject.mRID>GUID_TE6_Namotaj_Visoki</cim:IdentifiedObject.mRID>
 		<cim:IdentifiedObject.name>T6_Namotaj_Visoki</cim:IdentifiedObject.name>
 		<cim:IdentifiedObject.aliasName>35.0kv</cim:IdentifiedObject.aliasName>
 		<cim:PowerTransformerEnd.b>0.0004</cim:PowerTransformerEnd.b>
@@ -141,6 +154,7 @@
 		<cim:PowerTransformerEnd.x>15.5</cim:PowerTransformerEnd.x>
 		<cim:PowerTransformerEnd.x0>6</cim:PowerTransformerEnd.x0>
 		<cim:PowerTransformerEnd.PowerTransformer rdf:resource="#_T1"/>
+		<cim:TransformerEnd.Terminal rdf:resource="#_TERMINAL1"/>
 	</cim:PowerTransformerEnd>
 
 	<cim:TapChangerControl rdf:ID="_RC1">
@@ -158,6 +172,23 @@
 		<cim:TapChangerControl.lineDropX>0.2</cim:TapChangerControl.lineDropX>
 		<cim:TapChangerControl.reverseLineDropR>0.009</cim:TapChangerControl.reverseLineDropR>
 		<cim:TapChangerControl.reverseLineDropX>0.15</cim:TapChangerControl.reverseLineDropX>
+		<cim:RegulatingControl.Terminal rdf:resource="#_TERMINAL1"/>
 	</cim:TapChangerControl>
+
+	<cim:TapChanger rdf:ID="_TAP1">
+		<cim:IdentifiedObject.mRID>_TAP1</cim:IdentifiedObject.mRID>
+		<cim:IdentifiedObject.name>TAPCHANGER1</cim:IdentifiedObject.name>
+		<cim:IdentifiedObject.aliasName>TAP1_ALIAS</cim:IdentifiedObject.aliasName>
+		<cim:TapChanger.highStep>10</cim:TapChanger.highStep>
+		<cim:TapChanger.initialDelay>5.0</cim:TapChanger.initialDelay>
+		<cim:TapChanger.lowStep>-10</cim:TapChanger.lowStep>
+		<cim:TapChanger.ltcFlag>true</cim:TapChanger.ltcFlag>
+		<cim:TapChanger.neutralStep>0</cim:TapChanger.neutralStep>
+		<cim:TapChanger.neutralU>35.0</cim:TapChanger.neutralU>
+		<cim:TapChanger.normalStep>0</cim:TapChanger.normalStep>
+		<cim:TapChanger.regulationStatus>true</cim:TapChanger.regulationStatus>
+		<cim:TapChanger.subsequentDelay>2.0</cim:TapChanger.subsequentDelay>
+		<cim:TapChanger.TapChangerControl rdf:resource="#_RC1"/>
+	</cim:TapChanger>
 
 </rdf:RDF>
