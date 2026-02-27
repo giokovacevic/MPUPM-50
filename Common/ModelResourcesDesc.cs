@@ -866,8 +866,8 @@ namespace FTN.Common
 
         private void InitializeTypeIdsInInsertOrder()
         {
-            typeIdsInInsertOrder.Add(ModelCode.TERMINAL);
             typeIdsInInsertOrder.Add(ModelCode.POWERTR);
+            typeIdsInInsertOrder.Add(ModelCode.TERMINAL);
             typeIdsInInsertOrder.Add(ModelCode.POWERTREND);
             typeIdsInInsertOrder.Add(ModelCode.TAPCHANGERCTRL);
             typeIdsInInsertOrder.Add(ModelCode.TAPCHANGER);

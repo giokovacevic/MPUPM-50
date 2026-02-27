@@ -35,6 +35,7 @@
 		<cim:Terminal.connected>true</cim:Terminal.connected>
 		<cim:Terminal.phases>N</cim:Terminal.phases>
 		<cim:Terminal.sequenceNumber>1</cim:Terminal.sequenceNumber>
+		<cim:Terminal.ConductingEquipment rdf:resource="_T1"/>
 	</cim:Terminal>
 
 	<cim:PowerTransformerEnd rdf:ID="_TE1">
