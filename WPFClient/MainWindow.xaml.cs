@@ -80,16 +80,16 @@ namespace WPFClient
 
                 List<ResourceDescription> rds = gdaClient.GetExtentValuesObjects(selectedType, propsForTable);
 
-                List<ElementModel> listaZaTabelu = new List<ElementModel>();
+                List<ElementModel> listForTable = new List<ElementModel>();
                 foreach (ResourceDescription rd in rds)
                 {
                     Property nameProp = rd.Properties.FirstOrDefault(p => p.Id == ModelCode.IDOBJ_NAME);
                     string nameVal = (nameProp != null) ? nameProp.PropertyValue.StringValue : "undf";
 
-                    listaZaTabelu.Add(new ElementModel{GID = rd.Id, GidHex = String.Format("0x{0:x16}", rd.Id), Name = nameVal});
+                    listForTable.Add(new ElementModel{GID = rd.Id, GidHex = String.Format("0x{0:x16}", rd.Id), Name = nameVal});
                 }
 
-                dg_elements.ItemsSource = listaZaTabelu;
+                dg_elements.ItemsSource = listForTable;
                 richTextBox_2.Text = "Kliknite na element u tabeli za detalje...";
             }
             catch (Exception ex)
@@ -109,9 +109,9 @@ namespace WPFClient
                     DMSType type = (DMSType)ModelCodeHelper.ExtractTypeFromGlobalId(gid);
                     List<ModelCode> allProperties = modelDesc.GetAllPropertyIds(type);
 
-                    string detaljanIspis = gdaClient.GetValues(gid, allProperties);
+                    string detailed = gdaClient.GetValues(gid, allProperties);
 
-                    richTextBox_2.Text = detaljanIspis;
+                    richTextBox_2.Text = detailed;
                 }
                 catch (Exception ex)
                 {
