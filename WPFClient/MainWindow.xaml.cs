@@ -182,14 +182,12 @@ namespace WPFClient
 
             if (string.IsNullOrEmpty(result))
             {
-                //richTextBox_results2.Document.Blocks.Clear();
                 richTextBox_results2.Clear();
                 richTextBox_results2.AppendText("Rezultat je prazan. Proveri da li ovaj objekat ima popunjenu relaciju.");
             }
             else
             {
                 richTextBox_results2.Clear();
-                //richTextBox_results2.Document.Blocks.Clear();
                 richTextBox_results2.AppendText(result);
             }
         }
@@ -214,13 +212,11 @@ namespace WPFClient
                     }
                 }
 
-                // Provera - ako je i dalje 0, ispisaće poruku
                 if (ComboBoxRelElements.Count == 0)
                 {
                     MessageBox.Show("Baza je prazna ili GDA servis ne odgovara.");
                 }
 
-                // Ručno osvežavanje izvora za svaki slučaj
                 cbRelElements.ItemsSource = null;
                 cbRelElements.ItemsSource = ComboBoxRelElements;
             }
