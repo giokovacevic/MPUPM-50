@@ -41,79 +41,20 @@ namespace WPFClient.ClientConnection
         {
             ResourceDescription rd = null;
             string ss = "";
-            List<ModelCode> properties = new List<ModelCode>();
             try
             {
-                short type = ModelCodeHelper.ExtractTypeFromGlobalId(globalId);
-                properties = props;
-
-                rd = GdaQueryProxy.GetValues(globalId, properties);
+                rd = GdaQueryProxy.GetValues(globalId, props);
                 ss += String.Format("Item with gid: 0x{0:x16}:\n", globalId);
+
                 foreach (Property p in rd.Properties)
                 {
-                    ss += String.Format("{0} =", p.Id);
-                    switch (p.Type)
-                    {
-                        case PropertyType.Float:
-                            ss += String.Format(" {0}:\n", p.AsFloat());
-                            break;
-                        case PropertyType.Bool:
-                        case PropertyType.Int32:
-                        case PropertyType.Int64:
-                        case PropertyType.DateTime:
-                            if (p.Id == ModelCode.IDOBJ_GID)
-                            {
-                                ss += (String.Format("0x{0:x16}\n", p.AsLong()));
-                            }
-                            else
-                            {
-                                ss += String.Format("{0}\n", p.AsLong());
-                            }
-
-                            break;
-
-                        case PropertyType.Reference:
-                            ss += (String.Format("0x{0:x16}\n", p.AsReference()));
-                            break;
-                        case PropertyType.String:
-                            if (p.PropertyValue.StringValue == null)
-                            {
-                                p.PropertyValue.StringValue = String.Empty;
-                            }
-                            ss += String.Format("{0}\n", p.AsString());
-                            break;
-                        case PropertyType.Enum:
-                            ss += String.Format("{0}\n", p.AsEnum());
-                            break;
-
-
-                        case PropertyType.ReferenceVector:
-                            if (p.AsLongs().Count > 0)
-                            {
-                                string s = "";
-                                for (int j = 0; j < p.AsLongs().Count; j++)
-                                {
-                                    s += (String.Format("0x{0:x16},\n", p.AsLongs()[j]));
-                                }
-
-                                ss += s;
-                            }
-                            else
-                            {
-                                ss += ("empty long/reference vector\n");
-                            }
-
-                            break;
-
-
-                        default:
-                            throw new Exception("Failed to export Resource Description as XML. Invalid property type.");
-                    }
+                    ss += String.Format("{0} = ", p.Id);
+                    ss += FormatProperty(p);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                return "Error: " + ex.Message;
             }
 
             return ss;
@@ -121,113 +62,54 @@ namespace WPFClient.ClientConnection
 
         public string GetExtentValues(DMSType type, List<ModelCode> props)
         {
-
             int iteratorId = 0;
-            List<long> ids = new List<long>();
             string ss = "";
             bool gidBool = true;
             ModelCode modelCode = modelResourceDesc.GetModelCodeFromType(type);
+
             try
             {
-                int numberOfResources = 2;
-                int resourcesLeft = 0;
-
                 List<ModelCode> properties = props;
-                if (props.Contains(ModelCode.IDOBJ_GID) == false)
+                if (!props.Contains(ModelCode.IDOBJ_GID))
                 {
                     properties.Add(ModelCode.IDOBJ_GID);
                     gidBool = false;
                 }
+
                 iteratorId = GdaQueryProxy.GetExtentValues(modelCode, properties);
-                resourcesLeft = GdaQueryProxy.IteratorResourcesLeft(iteratorId);
+                int resourcesLeft = GdaQueryProxy.IteratorResourcesLeft(iteratorId);
                 ss += String.Format("Items with ModelCode: {0}:\n", modelCode.ToString());
+
                 while (resourcesLeft > 0)
                 {
-                    List<ResourceDescription> rds = GdaQueryProxy.IteratorNext(numberOfResources, iteratorId);
+                    List<ResourceDescription> rds = GdaQueryProxy.IteratorNext(2, iteratorId);
 
-                    for (int i = 0; i < rds.Count; i++)
+                    foreach (var rd in rds)
                     {
-                        ss += String.Format("\tItem with gid: 0x{0:x16}\n", rds[i].Properties.Find(r => r.Id == ModelCode.IDOBJ_GID).AsLong());
-                        foreach (Property p in rds[i].Properties)
+                        ss += String.Format("\tItem with gid: 0x{0:x16}\n", rd.Properties.Find(r => r.Id == ModelCode.IDOBJ_GID).AsLong());
+
+                        foreach (Property p in rd.Properties)
                         {
-                            if (p.Id == ModelCode.IDOBJ_GID && gidBool == false)
-                            {
+                            if (p.Id == ModelCode.IDOBJ_GID && !gidBool) continue;
 
-                            }
-                            else
-                            {
-                                ss += String.Format("\t\t{0} =", p.Id);
-                                switch (p.Type)
-                                {
-                                    case PropertyType.Float:
-                                        ss += String.Format(" {0}:\n", p.AsFloat());
-                                        break;
-                                    case PropertyType.Bool:
-                                    case PropertyType.Int32:
-                                    case PropertyType.Int64:
-                                    case PropertyType.DateTime:
-                                        if (p.Id == ModelCode.IDOBJ_GID)
-                                        {
-                                            ss += (String.Format("0x{0:x16}\n", p.AsLong()));
-                                        }
-                                        else
-                                        {
-                                            ss += String.Format("{0}\n", p.AsLong());
-                                        }
-                                        break;
-                                    case PropertyType.Reference:
-                                        ss += (String.Format("0x{0:x16}\n", p.AsReference()));
-                                        break;
-                                    case PropertyType.String:
-                                        if (p.PropertyValue.StringValue == null)
-                                        {
-                                            p.PropertyValue.StringValue = String.Empty;
-                                        }
-                                        ss += String.Format("{0}\n", p.AsString());
-                                        break;
-                                    case PropertyType.ReferenceVector:
-                                        if (p.AsLongs().Count > 0)
-                                        {
-                                            string s = "";
-                                            for (int j = 0; j < p.AsLongs().Count; j++)
-                                            {
-                                                s += (String.Format("0x{0:x16},\n", p.AsLongs()[j]));
-                                            }
-                                            ss += s;
-                                        }
-                                        else
-                                        {
-                                            ss += ("empty long/reference vector\n");
-                                        }
-                                        break;
-                                    case PropertyType.Enum:
-                                        ss += String.Format("{0}\n", p.AsEnum());
-                                        break;
-                                    default:
-                                        throw new Exception("Failed to export Resource Description as XML. Invalid property type.");
-                                }
-
-                            }
+                            ss += String.Format("\t\t{0} = ", p.Id);
+                            ss += FormatProperty(p);
                         }
                     }
                     resourcesLeft = GdaQueryProxy.IteratorResourcesLeft(iteratorId);
                 }
-
                 GdaQueryProxy.IteratorClose(iteratorId);
-
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Console.WriteLine("Error in GetExtentValues: " + ex.Message);
             }
-
 
             return ss;
         }
 
         public string GetRelatedValues(long sourceGlobalId, Association association, List<ModelCode> props)
         {
-
             string ss = "";
             int numberOfResources = 2;
             bool gidBool = true;
@@ -239,6 +121,7 @@ namespace WPFClient.ClientConnection
                     properties.Add(ModelCode.IDOBJ_GID);
                     gidBool = false;
                 }
+
                 int iteratorId = GdaQueryProxy.GetRelatedValues(sourceGlobalId, properties, association);
                 int resourcesLeft = GdaQueryProxy.IteratorResourcesLeft(iteratorId);
 
@@ -249,79 +132,24 @@ namespace WPFClient.ClientConnection
                     for (int i = 0; i < rds.Count; i++)
                     {
                         ss += String.Format("Item with gid: 0x{0:x16}\n", rds[i].Properties.Find(r => r.Id == ModelCode.IDOBJ_GID).AsLong());
+
                         foreach (Property p in rds[i].Properties)
                         {
                             if (p.Id == ModelCode.IDOBJ_GID && gidBool == false)
                             {
-
                             }
                             else
                             {
                                 ss += String.Format("\t{0} =", p.Id);
-                                switch (p.Type)
-                                {
-                                    case PropertyType.Float:
-                                        ss += String.Format(" {0}:\n", p.AsFloat());
-                                        break;
-                                    case PropertyType.Bool:
-                                    case PropertyType.Int32:
-                                    case PropertyType.Int64:
-                                    case PropertyType.DateTime:
-                                        if (p.Id == ModelCode.IDOBJ_GID)
-                                        {
-                                            ss += (String.Format("0x{0:x16}\n", p.AsLong()));
-                                        }
-                                        else
-                                        {
-                                            ss += String.Format("{0}\n", p.AsLong());
-                                        }
-                                        break;
-                                    case PropertyType.Reference:
-                                        ss += (String.Format("0x{0:x16}\n", p.AsReference()));
-                                        break;
-                                    case PropertyType.String:
-                                        if (p.PropertyValue.StringValue == null)
-                                        {
-                                            p.PropertyValue.StringValue = String.Empty;
-                                        }
-                                        ss += String.Format("{0}\n", p.AsString());
-                                        break;
-                                    case PropertyType.ReferenceVector:
-                                        if (p.AsLongs().Count > 0)
-                                        {
-                                            string s = "";
-                                            for (int j = 0; j < p.AsLongs().Count; j++)
-                                            {
-                                                s += (String.Format("0x{0:x16},\n", p.AsLongs()[j]));
-                                            }
-                                            ss += s;
-                                        }
-                                        else
-                                        {
-                                            ss += ("empty long/reference vector\n");
-                                        }
-                                        break;
-                                    case PropertyType.Enum:
-                                        ss += String.Format("{0}\n", p.AsEnum());
-                                        break;
-                                    default:
-                                        throw new Exception("Failed to export Resource Description as XML. Invalid property type.");
-
-                                }
+                                ss += FormatProperty(p);
                             }
                         }
                     }
                     resourcesLeft = GdaQueryProxy.IteratorResourcesLeft(iteratorId);
                 }
-
                 GdaQueryProxy.IteratorClose(iteratorId);
-
-
             }
-            catch (Exception)
-            {
-
-            }
+            catch (Exception) { }
 
             return ss;
         }
@@ -401,6 +229,40 @@ namespace WPFClient.ClientConnection
             }
 
             return result;
+        }
+
+        private string FormatProperty(Property p)
+        {
+            switch (p.Type)
+            {
+                case PropertyType.Float:
+                    return String.Format(" {0}:\n", p.AsFloat());
+                case PropertyType.Bool:
+                case PropertyType.Int32:
+                case PropertyType.Int64:
+                case PropertyType.DateTime:
+                    return (p.Id == ModelCode.IDOBJ_GID) ?
+                           String.Format("0x{0:x16}\n", p.AsLong()) :
+                           String.Format("{0}\n", p.AsLong());
+                case PropertyType.Reference:
+                    return String.Format("0x{0:x16}\n", p.AsReference());
+                case PropertyType.String:
+                    string val = (p.PropertyValue.StringValue == null) ? String.Empty : p.AsString();
+                    return String.Format("{0}\n", val);
+                case PropertyType.Enum:
+                    return String.Format("{0}\n", p.AsEnum());
+                case PropertyType.ReferenceVector:
+                    if (p.AsLongs().Count > 0)
+                    {
+                        string s = "";
+                        foreach (long l in p.AsLongs())
+                            s += String.Format("0x{0:x16},\n", l);
+                        return s;
+                    }
+                    return "EMPTY\n";
+                default:
+                    throw new Exception("Invalid property type.");
+            }
         }
     }
 }
